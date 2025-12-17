@@ -10,9 +10,14 @@ export interface ShoppingItem {
 export type AddItem = Omit<ShoppingItem, 'id' | 'createdAt'>;
 
 export interface AddItemProps {
-  onAddItem: (item: AddItem) => void;
+    onAddItem: (item: AddItem) => void;
 }
 
 export interface ViewItemsProps {
-  items?: ShoppingItem[];
+    items?: ShoppingItem[];
+}
+
+export interface DeleteItemProps {
+    item: ShoppingItem;
+    onDelete: (id: string) => void;
 }

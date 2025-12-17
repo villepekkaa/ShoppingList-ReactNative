@@ -1,4 +1,4 @@
-import { firestore, collection, addDoc, serverTimestamp, ITEMS, orderBy, query, onSnapshot } from '../firebase/Config';
+import { firestore, collection, doc,addDoc, deleteDoc, serverTimestamp, ITEMS, orderBy, query, onSnapshot } from '../firebase/Config';
 import { useEffect, useState } from 'react';
 import { ShoppingItem } from '../types/ShoppingList';
 
@@ -41,9 +41,18 @@ export const useShoppingList = () => {
         }
     };
 
+    const handleDeleteItem = async (id: string): Promise<void> => {
+        try {
+            const docRef = doc(firestore, ITEMS, id)
+            await deleteDoc(docRef)
+        } catch (err) {
+            console.error("Failed to delete item from Firebase",err)
+        }
+    }
+
     return {
         items,
         handleAddItem,
-        
+        handleDeleteItem
     };
 };
