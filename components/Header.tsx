@@ -1,11 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { HeaderProps } from '../types/ShoppingList';
 
-type Props = {
-    title?: string;
-};
-
-export default function Header({ title = 'Shopping List' }: Props) {
+export default function Header({ title = 'Shopping List' }: HeaderProps) {
     return (
         <View style={styles.header}>
             <Text style={styles.headerTitle}>{title}</Text>

@@ -21,3 +21,7 @@ export interface DeleteItemProps {
     item: ShoppingItem;
     onDelete: (id: string) => void;
 }
+
+export type HeaderProps = {
+    title?: string;
+};
