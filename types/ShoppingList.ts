@@ -4,7 +4,6 @@ export interface ShoppingItem {
     name: string;
     quantity: number;
     createdAt: any;
-
 }
 
 export type AddItem = Omit<ShoppingItem, 'id' | 'createdAt'>;
