@@ -5,24 +5,26 @@ import { DeleteItemProps } from '../types/ShoppingList';
 export default function DeleteItem({ item, onDelete }: DeleteItemProps) {
   return (
     <TouchableOpacity 
-      style={styles.deleteButton} 
+      style={styles.checkButton} 
       onPress={() => onDelete(item.id)}
     >
-      <Text style={styles.deleteText}>Delete</Text>
+      <Text style={styles.checkText}>✓</Text>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
-  deleteButton: {
-    backgroundColor: '#c0392b',
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    borderRadius: 5,
-    marginLeft: 10,
+  checkButton: {
+    width: 32,
+    height: 32,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#27ae60',
+    borderRadius: 16,
   },
-  deleteText: {
+  checkText: {
     color: '#fff',
+    fontSize: 18,
     fontWeight: 'bold',
   },
 });

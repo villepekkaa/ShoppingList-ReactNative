@@ -12,7 +12,7 @@ export default function ViewItems(props: ViewItemsProps) {
         <View style={[styles.itemRow, index % 2 === 0 && styles.evenItem]}>
             <View style={styles.itemInfo}>
                 <Text style={styles.itemName}>{item.name}</Text>
-                <Text style={styles.itemQuantity}>x{item.quantity}</Text>
+                <Text style={styles.itemQuantity}>{item.quantity} pcs </Text>
             </View>
             <DeleteItem item={item} onDelete={handleDeleteItem} />
         </View>
