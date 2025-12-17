@@ -24,8 +24,7 @@ export const useShoppingList = () => {
         })
         return () => { unsubscribe() }
     }, [])
-
-    // Tuotteen lisääminen 
+ 
     const handleAddItem = async (name: string, quantity: number): Promise<void> => {
         if (!name.trim()) return;
 
