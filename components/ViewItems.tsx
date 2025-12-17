@@ -39,13 +39,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: 15,
+        padding: 8,
         backgroundColor: '#ffffffff',
         borderRadius: 5,
         marginBottom: 8,
     },
     evenItem: {
-        backgroundColor: '#ebf3ffff',
+        backgroundColor: '#f8f8f8ff',
     },
     itemInfo: {
         flexDirection: 'row',
