@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, SafeAreaView } from 'react-native';
+import { StyleSheet, View, SafeAreaView, } from 'react-native';
 import AddItem from './components/AddItem';
 import ViewItems from './components/ViewItems';
 import { useShoppingList } from './hooks/useShoppingList';
 import { AddItem as AddItemType } from './types/ShoppingList';
+import Header from './components/Header';
 
 export default function App() {
   const { items, handleAddItem } = useShoppingList();
@@ -14,6 +15,7 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <Header />
       <View style={styles.content}>
         <AddItem onAddItem={onAddItem} />
         <ViewItems items={items} />

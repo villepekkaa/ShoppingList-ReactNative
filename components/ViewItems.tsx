@@ -24,7 +24,7 @@ export default function ViewItems(props: ViewItemsProps) {
                 data={items}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}
-                ListEmptyComponent={<Text style={styles.emptyText}>No items yet</Text>}
+                ListEmptyComponent={<Text style={styles.emptyText}>Shopping list is empty</Text>}
             />
         </View>
     );
