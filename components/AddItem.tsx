@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
     padding: 8,
     marginRight: 8,
     backgroundColor: 'rgba(255, 255, 255, 1)',
+    borderWidth: 1,
     borderRadius: 5,
   },
   quantityInput: {
@@ -65,6 +66,7 @@ const styles = StyleSheet.create({
     padding: 8,
     marginRight: 8,
     backgroundColor: 'rgba(255, 255, 255, 1)',
+    borderWidth: 1,
     borderRadius: 5,
     textAlign: 'center',
   },

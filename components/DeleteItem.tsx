@@ -15,7 +15,7 @@ export default function DeleteItem({ item, onDelete }: DeleteItemProps) {
 
 const styles = StyleSheet.create({
   deleteButton: {
-    backgroundColor: '#ff4444',
+    backgroundColor: '#c0392b',
     paddingVertical: 8,
     paddingHorizontal: 12,
     borderRadius: 5,

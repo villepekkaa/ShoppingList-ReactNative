@@ -17,7 +17,7 @@ export default function Header({ title = 'Shopping List' }: Props) {
 const styles = StyleSheet.create({
     header: {
         width: '100%',
-        padding: 8,
+        padding: 16,
         alignItems: 'center',
         backgroundColor: '#fff',
         borderBottomWidth: StyleSheet.hairlineWidth,

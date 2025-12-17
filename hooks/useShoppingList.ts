@@ -7,7 +7,7 @@ export const useShoppingList = () => {
 
     useEffect(() => {
         const colRef = collection(firestore, ITEMS)
-        const itemsq = query(colRef, orderBy('createdAt', 'desc'))
+        const itemsq = query(colRef, orderBy('createdAt', 'asc'))
         const unsubscribe = onSnapshot(itemsq, (snap) => {
             const itemsList: ShoppingItem[] = snap.docs.map(d => {
                 const data = d.data() as any

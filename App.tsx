@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, SafeAreaView, } from 'react-native';
+import { StyleSheet, View, SafeAreaView, KeyboardAvoidingView, Platform } from 'react-native';
 import AddItem from './components/AddItem';
 import ViewItems from './components/ViewItems';
 import { useShoppingList } from './hooks/useShoppingList';
@@ -16,10 +16,14 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <Header />
-      <View style={styles.content}>
-        <AddItem onAddItem={onAddItem} />
+      <KeyboardAvoidingView 
+        style={styles.content}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={0}
+      >
         <ViewItems items={items} />
-      </View>
+        <AddItem onAddItem={onAddItem} />
+      </KeyboardAvoidingView>
       <StatusBar style="auto" />
     </SafeAreaView>
   );
@@ -32,6 +36,5 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    paddingTop: 20,
   },
 });
