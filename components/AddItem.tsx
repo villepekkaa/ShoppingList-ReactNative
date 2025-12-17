@@ -2,29 +2,41 @@ import { StyleSheet, TextInput, View, TouchableOpacity, Text } from 'react-nativ
 import { useState } from 'react';
 import { AddItemProps } from '../types/ShoppingList';
 
-
-
 export default function AddTask({ onAddItem }: AddItemProps) {
   const [input, setInput] = useState('');
+  const [quantity, setQuantity] = useState('');
+
 
   const handleSubmit = () => {
-    if (input.trim()) {
-      onAddItem(input.trim());
-      setInput('');
-    }
+    const name = input.trim()
+    if (!name) return
+
+    const qty = Number(quantity) || 1
+    onAddItem({name, quantity: qty});
+    setInput('')
+    setQuantity('')
   };
 
   return (
-    <View style={styles.inputRow}>
-      <TextInput 
-        placeholder='Add a new item'
-        value={input}
-        onChangeText={setInput}
-        style={styles.input}
-      />
-      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-        <Text style={styles.buttonText}>Add</Text>
-      </TouchableOpacity>
+    <View style={styles.container}>
+      <View style={styles.inputRow}>
+        <TextInput 
+          placeholder='Add a new item'
+          value={input}
+          onChangeText={setInput}
+          style={styles.input}
+        />
+        <TextInput 
+          placeholder='Qty'
+          value={quantity}
+          onChangeText={setQuantity}
+          keyboardType='numeric'
+          style={styles.quantityInput}
+        />
+        <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+          <Text style={styles.buttonText}>Add</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -46,6 +58,15 @@ const styles = StyleSheet.create({
     marginRight: 8,
     backgroundColor: 'rgba(255, 255, 255, 1)',
     borderRadius: 5,
+  },
+  quantityInput: {
+    width: 60,
+    fontSize: 16,
+    padding: 8,
+    marginRight: 8,
+    backgroundColor: 'rgba(255, 255, 255, 1)',
+    borderRadius: 5,
+    textAlign: 'center',
   },
   button: {
     backgroundColor: '#198754',

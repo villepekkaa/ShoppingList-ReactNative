@@ -1,12 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, SafeAreaView } from 'react-native';
+import AddItem from './components/AddItem';
+import ViewItems from './components/ViewItems';
+import { useShoppingList } from './hooks/useShoppingList';
+import { AddItem as AddItemType } from './types/ShoppingList';
 
 export default function App() {
+  const { items, handleAddItem } = useShoppingList();
+
+  const onAddItem = (item: AddItemType) => {
+    handleAddItem(item.name, item.quantity);
+  };
+
   return (
-    <View style={styles.container}>
-      
+    <SafeAreaView style={styles.container}>
+      <View style={styles.content}>
+        <AddItem onAddItem={onAddItem} />
+        <ViewItems items={items} />
+      </View>
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -14,7 +27,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  },
+  content: {
+    flex: 1,
+    paddingTop: 20,
   },
 });

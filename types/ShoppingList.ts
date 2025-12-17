@@ -7,6 +7,12 @@ export interface ShoppingItem {
 
 }
 
+export type AddItem = Omit<ShoppingItem, 'id' | 'createdAt'>;
+
 export interface AddItemProps {
-  onAddItem: (text: string) => void;
+  onAddItem: (item: AddItem) => void;
+}
+
+export interface ViewItemsProps {
+  items?: ShoppingItem[];
 }
